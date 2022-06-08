@@ -1,19 +1,31 @@
-// Fetch function to get the list of pokemons
-function fetchList() {
-  fetch('https://pokeapi.co/api/v2/pokemon?limit=151') //The last number is the quantity of pokemons in the dex
-    .then((res) => res.json())
-    .then((data) => addPokemon(data));
-}
-
-// Add the list of pokemons to the selection tag
-function addPokemon(data) {
-  let select = document.getElementById('pokemonName');
-  // Loop through the list of pokemons
-  for (var i = 0; i < data.results.length; i++) {
-    text = data.results[i].name;
-    text = String(text).charAt(0).toUpperCase() + String(text).slice(1); // Format the name
-    select.options[select.options.length] = new Option(text, i + 1); // Add the option
+let array = [];
+async function getPokemonList(url) {
+  try {
+    let res = await fetch(`${url}`);
+    res = await res.json();
+    console.log(res);
+    console.log(res.results.length);
+    //console.log(pokemonOptions(res));
+    array = pokemonOptions(res);
+    $('#pokInput').autocomplete(
+      { source: array },
+      {
+        autofocus: true,
+        delay: 0,
+        minLength: 1,
+      }
+    );
+  } catch (e) {
+    console.log(e);
   }
 }
 
-fetchList();
+function pokemonOptions(pokemonList) {
+  for (let i = 0; i < pokemonList.results.length; i++) {
+    array.push(pokemonList.results[i].name);
+  }
+  return array;
+}
+
+url = 'https://pokeapi.co/api/v2/pokemon?limit=151'; //898
+getPokemonList(url);
