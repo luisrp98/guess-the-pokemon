@@ -36,6 +36,10 @@ async function getPokemonData(url) {
 
     // Change the img source to the front default sprite of the pokemon
     $('#pokImg').attr('src', res.sprites.front_default);
+    $('#answer').text(
+      `Your answer is: ${res.name}, type: ${res.types[0].type.name}, dex #${res.id}`
+    );
+    console.log(res);
 
     // Blank the input field
     $('#pokInput').val('');
@@ -61,6 +65,8 @@ $(document).ready(function () {
     }
   });
 });
+
+function getPokemonOfTheDay() {}
 
 url = 'https://pokeapi.co/api/v2/pokemon?limit=898'; //898
 getPokemonList(url);

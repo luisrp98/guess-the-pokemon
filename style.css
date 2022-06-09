@@ -8,3 +8,9 @@
   list-style: none;
   padding: 1rem 0rem;
 }
+.ui-autocomplete {
+}
+
+/*
+https://stackoverflow.com/questions/17838380/styling-jquery-ui-autocomplete
+*/
