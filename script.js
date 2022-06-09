@@ -21,7 +21,9 @@ async function getPokemonList(url) {
 
 function pokemonOptions(pokemonList) {
   for (let i = 0; i < pokemonList.results.length; i++) {
-    array.push(pokemonList.results[i].name);
+    array.push(
+      pokemonList.results[i].name.charAt(0).toUpperCase() + pokemonList.results[i].name.slice(1)
+    );
   }
   return array;
 }
@@ -55,7 +57,7 @@ $(document).ready(function () {
     // Get value on the input field #pokInput
     var str = $('#pokInput').val();
 
-    url = `https://pokeapi.co/api/v2/pokemon/${str}`;
+    url = `https://pokeapi.co/api/v2/pokemon/${str.toLowerCase()}`;
     console.log('Pokemon url to search:', url);
 
     try {
