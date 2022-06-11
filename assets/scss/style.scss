@@ -1,0 +1,37 @@
+@import 'reset';
+
+.ui-menu,
+.ui-menu-item a {
+  border: 2px solid black;
+  background-color: rgb(207, 207, 207);
+  list-style: none;
+  padding: 1rem 0rem;
+}
+div {
+  border: 2px solid black;
+}
+#focus {
+  background-color: brown;
+}
+   $spacer: 1rem !default;
+     $spacers: () !default;
+     // stylelint-disable-next-line scss/dollar-variable-default
+     $spacers: map-merge(
+       (
+         0: 0,
+         1: ($spacer * .25),    //4px
+         2: ($spacer * .5),     //8px
+         3: $spacer,            //16px
+         4: ($spacer * 1.5),    //24px
+         5: ($spacer * 3),      //48px
+         6: ($spacer * 4),      //64px
+         7: ($spacer * 5),      //80px
+         8: ($spacer * 6.25),   //100px
+         9: ($spacer * 7.5),    //120px
+         10: ($spacer * 9.375)  //150px
+       ),
+       $spacers
+     );
+
+/*https://www.youtube.com/watch?v=tQH0qWncX30&ab_channel=C%C3%B3digoAV*/
+/*https://stackoverflow.com/questions/17838380/styling-jquery-ui-autocomplete*/
