@@ -12,6 +12,9 @@ async function getPokemonList(url) {
         autofocus: true,
         delay: 0,
         minLength: 1,
+        open: function () {
+          $('ul.ui-menu').width($(this).innerWidth());
+        },
       }
     );
   } catch (e) {
@@ -37,7 +40,7 @@ async function getPokemonData(url) {
     res = await res.json();
 
     // Change the img source to the front default sprite of the pokemon
-    $('#pokImg').attr('src', res.sprites.front_default);
+    $('#pokImg').attr('src', res.sprites.other.home.front_default);
     $('#answer').text(
       `Your answer is: ${res.name}, type: ${res.types[0].type.name}, dex #${res.id}`
     );
