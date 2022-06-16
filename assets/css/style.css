@@ -23,6 +23,11 @@
   background-color: brown;
 }
 
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
 /*https://www.youtube.com/watch?v=tQH0qWncX30&ab_channel=C%C3%B3digoAV*/
 /*https://stackoverflow.com/questions/17838380/styling-jquery-ui-autocomplete*/
 
